@@ -1,5 +1,6 @@
-from logic.functions.base_function import BaseFunction
-
+from .base_function import BaseFunction
 
 class TestFunction(BaseFunction):
-    pass
+    def calculate_fitness(self, real_values):
+        test = 2 * real_values[0] ** 2 + 5
+        return test
