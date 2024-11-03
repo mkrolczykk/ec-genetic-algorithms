@@ -14,7 +14,7 @@ class SelectionMethod(StrEnum):
     ROULETTE = auto()
 
 
-class SelectionMethodFactory:
+class SelectionFactory:
     @staticmethod
     def create(options: AlgorithmOptions) -> SelectionAlgorithm:
         match options.selection_method:

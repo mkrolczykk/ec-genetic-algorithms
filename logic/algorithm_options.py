@@ -1,7 +1,7 @@
-from logic.functions.fitness_function import FitnessFunction
-from logic.selection.selection_method import SelectionMethod
-from logic.crossover.crossover_method import CrossoverMethod
-from logic.mutation.mutation_method import MutationMethod
+from logic.functions.functions_factory import FitnessFunction
+from logic.selection.selection_factory import SelectionMethod
+from logic.crossover.crossover_factory import CrossoverMethod
+from logic.mutation.mutation_factory import MutationMethod
 
 
 class AlgorithmOptions:
