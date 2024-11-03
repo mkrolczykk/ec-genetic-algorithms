@@ -1,6 +1,6 @@
 import random
-from logic.population.population import Population
-from logic.population.chromosome import Chromosome
+from logic.population import Population
+from logic.chromosome import Chromosome
 from logic.candidate import Candidate
 
 

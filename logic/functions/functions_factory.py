@@ -1,11 +1,21 @@
+from strenum import StrEnum
+from enum import auto
 from logic.algorithm_options import AlgorithmOptions
 from logic.functions.base_function import BaseFunction
 from logic.functions.eggholder_function import EggholderFunction
-from logic.functions.fitness_function import FitnessFunction
 from logic.functions.griewank_function import GriewankFunction
 from logic.functions.schaffer_four_function import SchafferFourFunction
 from logic.functions.schaffer_two_function import SchafferTwoFunction
 from logic.functions.test_function import TestFunction
+
+
+class FitnessFunction(StrEnum):
+    EGGHOLDER_FUNCTION = auto()
+    GRIEWANK_FUNCTION = auto()
+    SCHAFFER_N2_FUNCTION = auto()
+    SCHAFFER_N4_FUNCTION = auto()
+    TEST_FUNCTION = auto()
+    # TODO -> ADD ME
 
 
 class FunctionsFactory:

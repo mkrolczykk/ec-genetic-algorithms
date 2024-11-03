@@ -1,9 +1,17 @@
+from strenum import StrEnum
+from enum import auto
+
 from logic.algorithm_options import AlgorithmOptions
 from logic.selection.selection_algorithm import SelectionAlgorithm
-from logic.selection.selection_method import SelectionMethod
 from logic.selection.selection_best import SelectionBest
 from logic.selection.selection_roulette import SelectionRoulette
 from logic.selection.selection_tournament import SelectionTournament
+
+
+class SelectionMethod(StrEnum):
+    BEST = auto()
+    TOURNAMENT = auto()
+    ROULETTE = auto()
 
 
 class SelectionMethodFactory:

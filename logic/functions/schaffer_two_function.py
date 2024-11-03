@@ -2,4 +2,4 @@ from logic.functions.base_function import BaseFunction
 
 
 class SchafferTwoFunction(BaseFunction):
-    pass
+    pass # TODO -> ADD ME

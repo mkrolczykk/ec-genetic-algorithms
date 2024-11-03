@@ -1,10 +1,18 @@
+from strenum import StrEnum
+from enum import auto
 from logic.algorithm_options import AlgorithmOptions
 from logic.crossover.crossover_algorithm import CrossoverAlgorithm
-from logic.crossover.crossover_method import CrossoverMethod
 from logic.crossover.crossover_one_point import CrossoverOnePoint
 from logic.crossover.crossover_two_points import CrossoverTwoPoints
 from logic.crossover.crossover_granular import CrossoverGranular
 from logic.crossover.crossover_homo import CrossoverHomo
+
+
+class CrossoverMethod(StrEnum):
+    ONE_POINT = auto()
+    TWO_POINTS = auto()
+    GRANULAR = auto()
+    HOMO = auto()
 
 
 class CrossoverFactory:
