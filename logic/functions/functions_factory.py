@@ -4,7 +4,6 @@ from logic.algorithm_options import AlgorithmOptions
 from logic.functions.base_function import BaseFunction
 from logic.functions.eggholder_function import EggholderFunction
 from logic.functions.griewank_function import GriewankFunction
-from logic.functions.schaffer_four_function import SchafferFourFunction
 from logic.functions.schaffer_two_function import SchafferTwoFunction
 from logic.functions.test_function import TestFunction
 
@@ -13,9 +12,7 @@ class FitnessFunction(StrEnum):
     EGGHOLDER_FUNCTION = auto()
     GRIEWANK_FUNCTION = auto()
     SCHAFFER_N2_FUNCTION = auto()
-    SCHAFFER_N4_FUNCTION = auto()
     TEST_FUNCTION = auto()
-    # TODO -> ADD ME
 
 
 class FunctionsFactory:
@@ -23,13 +20,11 @@ class FunctionsFactory:
     def create(options: AlgorithmOptions) -> BaseFunction:
         match options.fitness_function:
             case FitnessFunction.EGGHOLDER_FUNCTION:
-                return EggholderFunction()
+                return EggholderFunction(options.number_of_variables)
             case FitnessFunction.GRIEWANK_FUNCTION:
-                return GriewankFunction()
+                return GriewankFunction(options.number_of_variables)
             case FitnessFunction.SCHAFFER_N2_FUNCTION:
                 return SchafferTwoFunction()
-            case FitnessFunction.SCHAFFER_N4_FUNCTION:
-                return SchafferFourFunction()
             case FitnessFunction.TEST_FUNCTION:
                 return TestFunction()
             case _:

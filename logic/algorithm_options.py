@@ -7,6 +7,7 @@ from logic.mutation.mutation_factory import MutationMethod
 class AlgorithmOptions:
     def __init__(self,
                  fitness_function: FitnessFunction,
+                 number_of_variables: int,
                  range_from: int,
                  range_to: int,
                  population_size: int,
@@ -22,6 +23,7 @@ class AlgorithmOptions:
                  mutation_method: MutationMethod,
                  maximization: bool):
         self.fitness_function = fitness_function
+        self.number_of_variables = number_of_variables
         self.range_from = range_from
         self.range_to = range_to
         self.population_size = population_size
