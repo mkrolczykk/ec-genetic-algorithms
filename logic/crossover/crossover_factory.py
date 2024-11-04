@@ -1,6 +1,5 @@
 from strenum import StrEnum
 from enum import auto
-from logic.algorithm_options import AlgorithmOptions
 from logic.crossover.crossover_algorithm import CrossoverAlgorithm
 from logic.crossover.crossover_one_point import CrossoverOnePoint
 from logic.crossover.crossover_two_points import CrossoverTwoPoints
@@ -17,14 +16,14 @@ class CrossoverMethod(StrEnum):
 
 class CrossoverFactory:
     @staticmethod
-    def create(options: AlgorithmOptions) -> CrossoverAlgorithm:
+    def create(options) -> CrossoverAlgorithm:
         match options.crossover_method:
             case CrossoverMethod.ONE_POINT:
                 return CrossoverOnePoint(options.crossover_probability)
             case CrossoverMethod.TWO_POINTS:
                 return CrossoverTwoPoints(options.crossover_probability)
             case CrossoverMethod.GRANULAR:
-                return CrossoverGranular(options.crossover_probability)
+                return CrossoverGranular(options.crossover_probability, options.grain_size)
             case CrossoverMethod.HOMO:
                 return CrossoverHomo(options.crossover_probability)
             case _:

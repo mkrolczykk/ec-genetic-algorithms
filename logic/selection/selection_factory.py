@@ -1,7 +1,6 @@
 from strenum import StrEnum
 from enum import auto
 
-from logic.algorithm_options import AlgorithmOptions
 from logic.selection.selection_algorithm import SelectionAlgorithm
 from logic.selection.selection_best import SelectionBest
 from logic.selection.selection_roulette import SelectionRoulette
@@ -16,7 +15,7 @@ class SelectionMethod(StrEnum):
 
 class SelectionFactory:
     @staticmethod
-    def create(options: AlgorithmOptions) -> SelectionAlgorithm:
+    def create(options) -> SelectionAlgorithm:
         match options.selection_method:
             case SelectionMethod.BEST:
                 return SelectionBest(options.selection_param, options.maximization)

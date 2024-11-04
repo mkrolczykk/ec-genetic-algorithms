@@ -1,6 +1,5 @@
 from strenum import StrEnum
 from enum import auto
-from logic.algorithm_options import AlgorithmOptions
 from logic.mutation.mutation_algorithm import MutationAlgorithm
 from logic.mutation.mutation_one_point import MutationOnePoint
 from logic.mutation.mutation_two_points import MutationTwoPoints
@@ -13,7 +12,7 @@ class MutationMethod(StrEnum):
 
 class MutationFactory:
     @staticmethod
-    def create(options: AlgorithmOptions) -> MutationAlgorithm:
+    def create(options) -> MutationAlgorithm:
         match options.mutation_method:
             case MutationMethod.ONE_POINT:
                 return MutationOnePoint(options.mutation_probability)

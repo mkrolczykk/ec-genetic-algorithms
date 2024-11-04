@@ -13,6 +13,7 @@ class AlgorithmOptions:
                  population_size: int,
                  precision: int,
                  epochs_amount: int,
+                 grain_size: int,
                  elite_strategy_amount: int,
                  crossover_probability: int,
                  mutation_probability: int,
@@ -29,6 +30,7 @@ class AlgorithmOptions:
         self.population_size = population_size
         self.precision = precision
         self.epochs_amount = epochs_amount
+        self.grain_size = grain_size
         self.elite_strategy_amount = elite_strategy_amount
         self.crossover_probability = crossover_probability
         self.mutation_probability = mutation_probability

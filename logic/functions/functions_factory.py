@@ -1,6 +1,5 @@
 from strenum import StrEnum
 from enum import auto
-from logic.algorithm_options import AlgorithmOptions
 from logic.functions.base_function import BaseFunction
 from logic.functions.eggholder_function import EggholderFunction
 from logic.functions.griewank_function import GriewankFunction
@@ -17,7 +16,7 @@ class FitnessFunction(StrEnum):
 
 class FunctionsFactory:
     @staticmethod
-    def create(options: AlgorithmOptions) -> BaseFunction:
+    def create(options) -> BaseFunction:
         match options.fitness_function:
             case FitnessFunction.EGGHOLDER_FUNCTION:
                 return EggholderFunction(options.number_of_variables)
