@@ -33,11 +33,12 @@ class DataStorageEventListener(EventListener):
         info_file_name = directory_name + "/results.txt"
         solution = last_generation.get_best_candidate(maximization=options.maximization)
 
+        values = [chromosome.decode_to_decimal() for chromosome in solution.chromosomes[:options.number_of_variables]]
+        values_str = ", ".join(f"{value:.5f}" for value in values)
+
         with open(info_file_name, "w", encoding="UTF8") as file:
             file.write("Function: {} (maximization? {})\n".format(options.fitness_function, options.maximization))
-            file.write("f({:.5f}, {:.5f}) = {:.5f}\n".format(solution.chromosomes[0].decode_to_decimal(),
-                                                             solution.chromosomes[1].decode_to_decimal(),
-                                                             solution.score))
+            file.write(f"f({values_str}) = {solution.score:.5f}\n")
             file.write("Range: [{}, {}]\n".format(options.range_from, options.range_to))
             file.write("Execution time: {}s\n\n".format(execution_time))
 
