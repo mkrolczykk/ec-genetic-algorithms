@@ -24,7 +24,7 @@ class View(ttk.Frame):
         self.fitness_function = self.add_selectbox(
             FitnessFunction.EGGHOLDER_FUNCTION,
             fdir(FitnessFunction),
-            "FitnessFunction",
+            "Fitness Function",
             0, 0)
 
         self.number_of_variables = self.add_spinbox(2, "Number of variables", 2, 20, 0, 1)
@@ -36,22 +36,22 @@ class View(ttk.Frame):
         self.selection_method = self.add_selectbox(
             SelectionMethod.BEST,
             fdir(SelectionMethod),
-            "Selection method",
+            "Selection type",
             1, 0)
 
         self.crossover_method = self.add_selectbox(
             CrossoverMethod.ONE_POINT,
             fdir(CrossoverMethod),
-            "Crossover method",
+            "Crossover type",
             1, 1)
 
         self.mutation_method = self.add_selectbox(
             MutationMethod.ONE_POINT,
             fdir(MutationMethod),
-            "Mutation method",
+            "Mutation type",
             1, 2)
 
-        self.grain_size = self.add_spinbox(2, "Grain Size (crossover granular)", 2, 10, 1, 3)
+        self.grain_size = self.add_spinbox(2, "Grain Size (only for Crossover Granular)", 2, 10, 1, 3)
         self.elite_strategy_amount = self.add_spinbox(1, "Elite Strategy amount", 0, 100, 1, 4)
         self.precision = self.add_spinbox(5, "Precision", 0, 20, 1, 5)
 
@@ -74,7 +74,7 @@ class View(ttk.Frame):
             text="Start",
             style="Accent.TButton",
             command=self.submit)
-        button.grid(column=2, row=4, sticky=tk.SE, padx=self.GRID_GAP_X, pady=self.GRID_GAP_Y)
+        button.grid(column=2, row=5, sticky=tk.SE, padx=self.GRID_GAP_X, pady=self.GRID_GAP_Y)
 
         self.controller = None
 

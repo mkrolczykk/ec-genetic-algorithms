@@ -13,7 +13,7 @@ class Application(tk.Tk):
         super().__init__(*args, **kwargs)
 
         self.title("EC Genetic Algorithms project 1")
-        self.minsize(600, 0)
+        self.minsize(800, 0)
         self.resizable(False, True)
 
         # MVC pattern
