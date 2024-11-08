@@ -9,7 +9,9 @@ class MutationEdge(MutationAlgorithm):
             return candidate
 
         for chromosome in candidate.chromosomes:
-            num_of_bit = random.randint(0, len(chromosome.gen_list) - 1)
-            chromosome.gen_list[num_of_bit] = 1 - chromosome.gen_list[num_of_bit]
+            if random.random() < 0.5:
+                chromosome.gen_list[0] = 1 - chromosome.gen_list[0]
+            else:
+                chromosome.gen_list[-1] = 1 - chromosome.gen_list[-1]
 
         return candidate
