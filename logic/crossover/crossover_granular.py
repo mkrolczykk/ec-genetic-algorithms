@@ -24,7 +24,7 @@ class CrossoverGranular(CrossoverAlgorithm):
             for i in range(0, len(gen_list1), self.grain_size):
                 end = min(i + self.grain_size, len(gen_list1))
 
-                if random.random() < 0.5:
+                if self.should_cross():
                     gen_list1[i:end], gen_list2[i:end] = gen_list2[i:end], gen_list1[i:end]
 
             chromosome1.gen_list = gen_list1
