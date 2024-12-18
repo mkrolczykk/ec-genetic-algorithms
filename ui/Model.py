@@ -16,6 +16,8 @@ class Model:
         self.__grain_size = None
         self.__elite_strategy_amount = None
         self.__crossover_probability = None
+        self.__crossover_alpha = None
+        self.__crossover_beta = None
         self.__mutation_probability = None
         self.__inversion_probability = None
         self.__selection_method = None
@@ -133,6 +135,28 @@ class Model:
             raise ValueError("")
 
         self.__crossover_probability = value
+
+    @property
+    def crossover_alpha(self):
+        return self.__crossover_alpha
+
+    @crossover_alpha.setter
+    def crossover_alpha(self, value):
+        if value != float(value) or value <= 0 or value > 1:
+            raise ValueError("Crossover alpha must be a float between 0 and 1")
+
+        self.__crossover_alpha = value
+
+    @property
+    def crossover_beta(self):
+        return self.__crossover_beta
+
+    @crossover_beta.setter
+    def crossover_beta(self, value):
+        if value != float(value) or value <= 0 or value > 1:
+            raise ValueError("Crossover beta must be a float between 0 and 1")
+
+        self.__crossover_beta = value
 
     @property
     def mutation_probability(self):

@@ -22,7 +22,7 @@ class View(ttk.Frame):
             self.columnconfigure(column_index, weight=1)
 
         self.fitness_function = self.add_selectbox(
-            FitnessFunction.EGGHOLDER_FUNCTION,
+            FitnessFunction.GRIEWANK_FUNCTION,
             fdir(FitnessFunction),
             "Fitness Function",
             0, 0)
@@ -40,20 +40,21 @@ class View(ttk.Frame):
             1, 0)
 
         self.crossover_method = self.add_selectbox(
-            CrossoverMethod.ONE_POINT,
+            CrossoverMethod.ARITHMETIC,
             fdir(CrossoverMethod),
             "Crossover type",
             1, 1)
 
         self.mutation_method = self.add_selectbox(
-            MutationMethod.ONE_POINT,
+            MutationMethod.GAUSS,
             fdir(MutationMethod),
             "Mutation type",
             1, 2)
 
-        self.grain_size = self.add_spinbox(2, "Grain Size (only for Crossover Granular)", 2, 10, 1, 3)
-        self.elite_strategy_amount = self.add_spinbox(1, "Elite Strategy amount", 0, 100, 1, 4)
-        self.precision = self.add_spinbox(5, "Precision", 0, 20, 1, 5)
+        self.crossover_alpha = self.add_spinbox(0.5, "Alpha value (for Crossover Blend Alpha)", 0.0, 1.0, 1, 3)
+        self.crossover_beta = self.add_spinbox(0.5, "Beta value (for Crossover Blend Alpha Beta)", 0.0, 1.0, 1, 4)
+        self.elite_strategy_amount = self.add_spinbox(1, "Elite Strategy amount", 0, 100, 1, 5)
+        self.precision = self.add_spinbox(5, "Precision", 0, 20, 1, 6)
 
         self.selection_param = self.add_spinbox(60, "Selection param ([%] - BEST, k)", 0, 100, 2, 0)
         self.crossover_probability = self.add_spinbox(70, "Crossover probability [%]", 0, 100, 2, 1)
@@ -87,9 +88,12 @@ class View(ttk.Frame):
             int(self.population_size.get()),
             int(self.precision.get()),
             int(self.epochs_amount.get()),
-            int(self.grain_size.get()),
+            # int(self.grain_size.get()),
+            int(10),    # TODO -> temporary solution
             int(self.elite_strategy_amount.get()),
             int(self.crossover_probability.get()),
+            float(self.crossover_alpha.get()),
+            float(self.crossover_beta.get()),
             int(self.mutation_probability.get()),
             int(self.inversion_probability.get()),
             self.selection_method.get(),

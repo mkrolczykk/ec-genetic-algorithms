@@ -16,6 +16,8 @@ class AlgorithmOptions:
                  grain_size: int,
                  elite_strategy_amount: int,
                  crossover_probability: int,
+                 crossover_alpha: float,
+                 crossover_beta: float,
                  mutation_probability: int,
                  inversion_probability: int,
                  selection_method: SelectionMethod,
@@ -33,6 +35,8 @@ class AlgorithmOptions:
         self.grain_size = grain_size
         self.elite_strategy_amount = elite_strategy_amount
         self.crossover_probability = crossover_probability
+        self.crossover_alpha = crossover_alpha
+        self.crossover_beta = crossover_beta
         self.mutation_probability = mutation_probability
         self.inversion_probability = inversion_probability
         self.selection_method = selection_method

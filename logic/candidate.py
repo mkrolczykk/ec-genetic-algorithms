@@ -1,3 +1,4 @@
+from logic.chromosome import Chromosome
 from logic.functions.base_function import BaseFunction
 
 
@@ -14,6 +15,8 @@ class Candidate:
     def chromosomes(self, value):
         if not isinstance(value, list):
             raise ValueError("Given object is not an instance of list.")
+        if not all(isinstance(chromosome, Chromosome) for chromosome in value):
+            raise ValueError("All elements in chromosomes must be instances of Chromosome.")
         self.__chromosomes = value
 
     @property
@@ -36,5 +39,5 @@ class Candidate:
 
     def __str__(self):
         return "score = {}, {}".format(self.score, ", ".join(
-            ["x{} = {} ({})".format(i, solution, chromosome) for i, (chromosome, solution)
-             in enumerate(zip(self.chromosomes, self.decoded_chromosomes))]))
+            ["x{} = {} ({})".format(i, solution, ", ".join(map(str, chromosome.gen_list)))
+             for i, (chromosome, solution) in enumerate(zip(self.chromosomes, self.decoded_chromosomes))]))

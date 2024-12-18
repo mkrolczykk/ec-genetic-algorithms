@@ -14,6 +14,8 @@ class Controller:
                grain_size,
                elite_strategy_amount,
                crossover_probability,
+               crossover_alpha,
+               crossover_beta,
                mutation_probability,
                inversion_probability,
                selection_method,
@@ -31,6 +33,8 @@ class Controller:
         self.model.grain_size = grain_size
         self.model.elite_strategy_amount = elite_strategy_amount
         self.model.crossover_probability = crossover_probability
+        self.model.crossover_alpha = crossover_alpha
+        self.model.crossover_beta = crossover_beta
         self.model.mutation_probability = mutation_probability
         self.model.inversion_probability = inversion_probability
         self.model.selection_method = selection_method

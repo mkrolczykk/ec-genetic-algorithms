@@ -1,4 +1,4 @@
-import math
+import random
 
 
 class Chromosome:
@@ -15,6 +15,8 @@ class Chromosome:
     def gen_list(self, value):
         if not isinstance(value, list):
             raise ValueError("Given object is not an instance of list.")
+        if not all(isinstance(x, (int, float)) for x in value):
+            raise ValueError("All genes must be integers or floats.")
         self.__gen_list = value
 
     @property
@@ -23,9 +25,9 @@ class Chromosome:
 
     @range_from.setter
     def range_from(self, value):
-        if value != float(value):
-            raise ValueError("Given value should be float.")
-        self.__range_from = value
+        if not isinstance(value, (int, float)):
+            raise ValueError("Given value should be a number.")
+        self.__range_from = float(value)
 
     @property
     def range_to(self):
@@ -33,23 +35,33 @@ class Chromosome:
 
     @range_to.setter
     def range_to(self, value):
-        if value != float(value):
-            raise ValueError("Given value should be float.")
-        self.__range_to = value
+        if not isinstance(value, (int, float)):
+            raise ValueError("Given value should be a number.")
+        self.__range_to = float(value)
 
     @property
-    def num_of_bits(self):
+    def num_of_genes(self):
         return len(self.__gen_list)
 
     def __str__(self):
-        return "".join([str(x) for x in self.gen_list])
+        return ", ".join([f"{x:.4f}" for x in self.gen_list])
 
     def decode_to_decimal(self):
-        binary_str = ''.join([str(x) for x in self.gen_list])
-        decimal_num = int(binary_str, 2)
 
-        return self.range_from + decimal_num * (self.range_to - self.range_from) / (pow(2, self.num_of_bits) - 1)
+        decimal_value = sum(self.gen_list) / len(self.gen_list)
+
+        return decimal_value
 
     @staticmethod
-    def calculate_num_of_bits(range_from, range_to, precision):
-        return math.ceil(math.log2((range_to - range_from) * pow(10, precision) + 1))
+    def generate_random_chromosome(length, range_from, range_to):
+
+        return Chromosome(
+            gen_list=[random.uniform(range_from, range_to) for _ in range(length)],
+            range_from=range_from,
+            range_to=range_to
+        )
+
+    @staticmethod
+    def calculate_precision(range_from, range_to, num_of_genes):
+
+        return abs(range_to - range_from) / num_of_genes

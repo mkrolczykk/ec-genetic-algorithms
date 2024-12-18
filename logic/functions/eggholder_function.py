@@ -3,7 +3,6 @@ from logic.functions.base_function import BaseFunction
 
 
 class EggholderFunction(BaseFunction):
-    # minimal value and range will depend on the number of variables, as it scales with each additional pair
 
     @property
     def NUM_OF_VARIABLES(self):

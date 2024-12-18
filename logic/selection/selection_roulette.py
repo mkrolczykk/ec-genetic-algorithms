@@ -9,7 +9,8 @@ class SelectionRoulette(SelectionAlgorithm):
         self.__size = size
 
     def calculate(self, population):
-        def fitness(score, maximization): return score if maximization else 1 / score
+        def fitness(score, maximization):
+            return score if maximization else (1 / score if score != 0 else 0)
 
         candidates = []
 

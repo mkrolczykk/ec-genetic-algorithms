@@ -39,7 +39,6 @@ class Algorithm(Thread):
             generations.append(self.create_next_generation(generations[-1], selection_method, crossover_method,
                                                            mutation_method, inversion_method))
 
-        print("after")
         self.print_statistics(generations[-1], with_candidates=False)
         execution_time = time.time() - execution_time
         time_finished = time.strftime("%Y-%m-%d_%H-%M-%S")
