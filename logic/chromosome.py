@@ -48,10 +48,13 @@ class Chromosome:
 
     def decode_to_decimal(self):
 
+        # # use for Griewank function
         # decimal_value = sum(self.gen_list) / len(self.gen_list)
         #
         # return decimal_value
-        return sum(self.gen_list)
+        # # use for Griewank function
+
+        return sum(self.gen_list)   # use for Eggholder function
 
     @staticmethod
     def generate_random_chromosome(length, range_from, range_to):

@@ -22,14 +22,14 @@ class View(ttk.Frame):
             self.columnconfigure(column_index, weight=1)
 
         self.fitness_function = self.add_selectbox(
-            FitnessFunction.GRIEWANK_FUNCTION,
+            FitnessFunction.EGGHOLDER_FUNCTION,
             fdir(FitnessFunction),
             "Fitness Function",
             0, 0)
 
         self.number_of_variables = self.add_spinbox(2, "Number of variables", 2, 20, 0, 1)
-        self.range_from = self.add_spinbox(-10, "Range from", -100, 100, 0, 2)
-        self.range_to = self.add_spinbox(10, "Range to", -100, 100, 0, 3)
+        self.range_from = self.add_spinbox(-512, "Range from", -1000, 1000, 0, 2)
+        self.range_to = self.add_spinbox(512, "Range to", -1000, 1000, 0, 3)
         self.population_size = self.add_spinbox(40, "Population size", 0, 100, 0, 4)
         self.epochs_amount = self.add_spinbox(100, "Epochs amount", 0, 100, 0, 5)
 
